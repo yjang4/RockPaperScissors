@@ -1,0 +1,44 @@
+<script>
+    function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+    }
+    function getComputerInput() {
+        const randomNumber = getRandomInt(3);
+        let computerInput = '';
+        switch(randomNumber) {
+            case 0:
+                computerInput = 'Rock';
+                break;
+            case 1:
+                computerInput = 'Scissors';
+                break;
+            case 2:
+                computerInput = 'Paper';
+                break;
+            default:
+                break;
+        }
+        return computerInput;
+    }
+    function playRockPaperScissors(x) {
+        let computerInput = getComputerInput();
+        x = x.toUpperCase();
+        let result = '';
+        if (x == 'ROCK' && computerInput == 'Scissors' ||
+                x == 'SCISSORS' && computerInput == 'Paper' ||
+                x == 'PAPER' && computerInput == 'Rock') {
+            result = 'Win';
+        }
+        else if (x == 'ROCK' && computerInput == 'Paper' ||
+                x == 'SCISSORS' && computerInput == 'Rock' ||
+                x == 'PAPER' && computerInput == 'Scissors') {
+            result = 'Lose';           
+        }
+        else {
+            result = 'Tie';
+        }
+        return result;
+    }
+    
+
+</script>
