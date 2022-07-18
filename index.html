@@ -1,52 +1,22 @@
-<script>
-    function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-    }
-    function getComputerInput() {
-        const randomNumber = getRandomInt(3);
-        let computerInput = '';
-        switch(randomNumber) {
-            case 0:
-                computerInput = 'Rock';
-                break;
-            case 1:
-                computerInput = 'Scissors';
-                break;
-            case 2:
-                computerInput = 'Paper';
-                break;
-            default:
-                break;
-        }
-        return computerInput;
-    }
-    function playRockPaperScissors(x) {
-        let computerInput = getComputerInput();
-        x = x.toUpperCase();
-        let result = '';
-        if (x == 'ROCK' && computerInput == 'Scissors' ||
-                x == 'SCISSORS' && computerInput == 'Paper' ||
-                x == 'PAPER' && computerInput == 'Rock') {
-            result = 'Win';
-        }
-        else if (x == 'ROCK' && computerInput == 'Paper' ||
-                x == 'SCISSORS' && computerInput == 'Rock' ||
-                x == 'PAPER' && computerInput == 'Scissors') {
-            result = 'Lose';           
-        }
-        else {
-            result = 'Tie';
-        }
-        return result;
-    }
-    function game() {
-        for (i = 0; i < 5; i ++) {
-            let playerInput = prompt("Cast your die");
-            console.log(playRockPaperScissors(playerInput));
-        }
-        
-    }
-    game();
-    
-
-</script>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Rock Paper Scissors</title>
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <button class="rock-button"> Rock </button>
+        <button class="paper-button"> Paper </button>
+        <button class="scissors-button"> Scissors </button>
+        <div class="result"></div>
+        <div class="player-score"></div>
+        <div class="computer-score"></div>
+        <script src="main.js" async defer></script>
+    </body>
+</html>
