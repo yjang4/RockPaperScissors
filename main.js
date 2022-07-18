@@ -38,41 +38,56 @@ function playRockPaperScissors(playerInput) {
     }
     return result;
 }
+let rockButton = document.querySelector('.rock-button');
+let paperButton = document.querySelector('.paper-button');
+let scissorsButton = document.querySelector('.scissors-button');
+let result = document.querySelector('.result');
+let playerScoreDisplay = document.querySelector('.player-score');
+let computerScoreDisplay = document.querySelector('.computer-score');
+let winnerDisplay = document.querySelector('.winner-display');
+
+let playerScore = 0;
+let computerScore = 0;
+playerScoreDisplay.textContent = `Player score: ${playerScore}`;
+computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
+let gameOutcome = '';
+function gameUpdate() {
+    result.textContent = gameOutcome;
+    if(gameOutcome == 'Win') {
+        playerScore ++;
+    }
+    else if(gameOutcome == 'Lose') {
+        computerScore ++;
+    }
+    playerScoreDisplay.textContent = `Player score: ${playerScore}`;
+    computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
+    if(playerScore > 4) {
+        winnerDisplay.textContent = 'Player wins';
+    }
+    else if(computerScore > 4) {
+        winnerDisplay.textContent = 'Computer wins';
+    }
+}
 function game() {
     /*
     for (i = 0; i < 5; i ++) {
         let playerInput = prompt("Cast your die");
         console.log(playRockPaperScissors(playerInput));
     }*/
-    let rockButton = document.querySelector('.rock-button');
-    let paperButton = document.querySelector('.paper-button');
-    let scissorsButton = document.querySelector('.scissors-button');
-    let result = document.querySelector('.result');
-    let playerScoreDisplay = document.querySelector('.player-score');
-    let computerScoreDisplay = document.querySelector('.computer-score');
-    let playerScore = 0;
-    let computerScore = 0;
-    playerScoreDisplay.textContent = `Player score: ${playerScore}`;
-    computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
-
+    
     rockButton.addEventListener('click', () => {
-        const gameOutcome = playRockPaperScissors('ROCK');
+        gameOutcome = playRockPaperScissors('ROCK');
+        gameUpdate();
     });
     paperButton.addEventListener('click', () => {
-        const gameOutcome = playRockPaperScissors('PAPER');
+        gameOutcome = playRockPaperScissors('PAPER');
+        gameUpdate();
     });
-    paperButton.addEventListener('click', () => {
-        const gameOutcome = playRockPaperScissors('PAPER');
+    scissorsButton.addEventListener('click', () => {
+        gameOutcome = playRockPaperScissors('SCISSORS');
+        gameUpdate();
     });
-    result.textContent = gameOutcome;
-    if(gameOutcome == 'Win') {
-        playerScore ++;
-    }
-    else if(gameOutCome == 'Lose') {
-        computerScore ++;
-    }
-    playerScoreDisplay.textContent = `Player score: ${playerScore}`;
-    computerScoreDisplay.textContent = `Computer score: ${computerScore}`;
+    
     
     
 }
